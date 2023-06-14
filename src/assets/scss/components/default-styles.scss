@@ -1,0 +1,16 @@
+#app {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    padding-top: 40px; //TODO: fix styles
+  }
+
+  #app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 2rem;
+  }
+}

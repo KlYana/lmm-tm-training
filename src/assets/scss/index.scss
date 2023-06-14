@@ -1,2 +1,8 @@
-@import './default-styles.scss';
-@import './taiwind.scss';
+@import "@syntax-design/syntax-css-toolkit/dist/reset.css";
+@import "@syntax-design/syntax-tokens/dist/themes/light.css";
+@import "@syntax-design/syntax-ui/dist/style.css";
+@import "@syntax-design/shared-ui/dist/style.css";
+@import "config";
+@import "mixins";
+@import "global";
+@import "components";
