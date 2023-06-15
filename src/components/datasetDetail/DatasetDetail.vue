@@ -5,15 +5,11 @@
         <div class="w-[284px]">
             <SynSelect
                 v-model="proxyModelValue"
-                :items="datasetsItems"
+                :items="mapToSynSelectType"
                 :dropdown-options="BASE_DROPDOWN_OPTIONS"
                 :full-width="true"
                 :placeholder="label"
-            >
-                <template #item-suffix="{item}">
-                    {{ item.value }}
-                </template>
-            </SynSelect>
+            />
         </div>
     </div>
 </template>
@@ -23,7 +19,7 @@ import { computed, toRefs } from 'vue';
 import { SynSelect } from '@syntax-design/syntax-ui';
 import { BASE_DROPDOWN_OPTIONS } from '../../common/constants';
 import datasetStore from '../../stores/dataset';
-import { type Dataset } from '../../client/DatasetsApiClient.types';
+import { type DatasetOption } from '../../client/DatasetsApiClient.types';
 
 
 const props = defineProps({
@@ -32,23 +28,6 @@ const props = defineProps({
         default: '',
     },
 });
-
-
-//TODO: take from store store.datasets after BE fix + right mapping to synSelect
-const datasetsItems = computed(() => [
-    {
-        value: 'dataset1',
-        title: 'English to Slovak',
-    },
-    {
-        value: 'dataset2',
-        title: 'English to Polish',
-    },
-    {
-        value: 'dataset3',
-        title: 'English to German',
-    },
-] as Dataset[]);
 
 const label = 'Choose dataset';
 
@@ -59,15 +38,29 @@ const emit = defineEmits<{
 const { modelValue } = toRefs(props);
 
 const proxyModelValue = computed({
-    get(): Dataset | null {
-        return modelValue.value ? datasetsItems?.value.find(a => a.value === modelValue.value) : null;
+    get(): DatasetOption | null {
+        return modelValue.value ? mapToSynSelectType.value.find(a => a.value === modelValue.value) : null;
     },
-    set(dataset: Dataset | null) {
+    set(dataset: DatasetOption | null) {
         datasetStore.fetchDatasetSampleData(dataset?.value ?? '');
         emit('update:modelValue', dataset?.value ?? '');
     },
 });
 
 datasetStore.fetchAvailableDatasets();
+
+const mapToSynSelectType = computed(() => {
+    const synSelectType: DatasetOption[] = [];
+    datasetStore.datasets.forEach(a => {
+        const option = {
+            value: a.id,
+            title: a.id,
+        } as DatasetOption;
+
+        synSelectType.push(option);
+    });
+
+    return synSelectType;
+})
 
 </script>
