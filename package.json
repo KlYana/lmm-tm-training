@@ -13,20 +13,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@syntax-design/shared-ui": "4.0.0-beta.346",
-    "@syntax-design/syntax-css-toolkit": "4.0.0-beta.346",
-    "@syntax-design/syntax-icons": "4.0.0-beta.346",
-    "@syntax-design/syntax-tokens": "2.12.0",
-    "@syntax-design/syntax-ui": "4.0.0-beta.346",
     "pinia": "^2.1.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@syntax-design/design-system-tsconfig": "0.0.1",
-    "@syntax-design/eslint-config-design-system": "0.0.5",
-    "@syntax-design/stylelint-config-design-system": "0.0.3",
     "@tsconfig/node18": "^2.0.1",
     "@types/jsdom": "^21.1.1",
     "@types/node": "^18.16.17",
