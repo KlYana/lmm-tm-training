@@ -11,7 +11,7 @@ export const getCsrfToken = (): string => {
 }
 
 const config: AxiosRequestConfig = {
-  baseURL: 'https://phrase-hackathon-llm-tm.azurewebsites.net'
+  baseURL: ''
 }
 
 const httpClient = axios.create(config)
