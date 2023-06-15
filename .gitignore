@@ -38,3 +38,4 @@ coverage
 # .yarn/versions
 .pnp.*
 
+.vercel
