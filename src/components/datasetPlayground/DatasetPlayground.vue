@@ -1,10 +1,9 @@
 <template>
     <DatasetDetail v-model="datasetId"/>
-    <DatasetDetailSampleTable v-if="hasSamples" />
+    <DatasetDetailSampleTable />
 
     <div class="syn-btn mt-8">
         <SynButton
-            v-if="hasSamples"
             :variant="SynButtonVariant.primary"
             :size="SynButtonSize.medium"
             @click="onContinueClick"
@@ -30,7 +29,7 @@ import datasetStore from '../../stores/dataset';
 import { type VaporiseDatasetObject } from '../../client/DatasetsApiClient.types'; 
 import DatasetDetail from '../datasetDetail/DatasetDetail.vue'
 import DatasetDetailSampleTable from '../datasetDetail/DatasetDetailSampleDataTable.vue';
-
+//  v-show="hasSamples"
 const datasetId = ref('');
 const hasSamples = computed(() => datasetStore.selectedDatasetSample?.segments?.length > 0);
 
