@@ -1,8 +1,7 @@
 <template>
     <DatasetDetail v-model="datasetId"/>
-    <DatasetDetailSampleTable v-if="hasSamples" />
+    <DatasetDetailSampleTable />
     <SynButton
-        v-if="hasSamples"
         :variant="SynButtonVariant.primary"
         :size="SynButtonSize.medium"
         @click="onContinueClick"

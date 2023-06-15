@@ -22,7 +22,7 @@ const tableHeaderProps = computed((): SynTableHeaderProps => ({
 }));
 
 const tableBodyProps = computed((): SynTableBodyProps => ({
-    list: datasetStore.selectedDatasetSample?.segments,
+    list: datasetStore.selectedDatasetSample ? datasetStore.selectedDatasetSample.segments : [],
 }));
 
 
