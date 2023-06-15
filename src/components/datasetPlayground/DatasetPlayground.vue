@@ -26,7 +26,7 @@ import DatasetDetail from '../datasetDetail/DatasetDetail.vue'
 import DatasetDetailSampleTable from '../datasetDetail/DatasetDetailSampleDataTable.vue';
 
 const datasetId = ref('');
-const hasSamples = computed(() => datasetStore.selectedDatasetSample.segments.length > 0);
+const hasSamples = computed(() => datasetStore.selectedDatasetSample?.segments?.length > 0);
 
 const onContinueClick = () => {
     //TODO: next step
