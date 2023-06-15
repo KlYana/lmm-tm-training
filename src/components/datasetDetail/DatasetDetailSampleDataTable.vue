@@ -23,30 +23,5 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onUpdated } from 'vue'
-import {
-  SynTable,
-  SynTableBodyProps,
-  SynTableHeaderProps,
-  SynTableTextAlign
-} from '@syntax-design/syntax-ui'
 import datasetStore from '../../stores/dataset'
-import { datasetDetailColumns } from './DatasetDetailSampleDataTable'
-
-const tableHeaderProps = computed(
-  (): SynTableHeaderProps => ({
-    columns: datasetDetailColumns,
-    textAlign: SynTableTextAlign.LEFT
-  })
-)
-
-const tableBodyProps = computed(
-  (): SynTableBodyProps => ({
-    list: datasetStore.selectedDatasetSample ? datasetStore.selectedDatasetSample.segments : []
-  })
-)
-
-onUpdated(() => {
-  console.log(tableBodyProps.value)
-})
 </script>
