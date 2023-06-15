@@ -2,7 +2,7 @@
     <DatasetDetail v-model="datasetId"/>
     <DatasetDetailSampleTable />
 
-    <!-- <div class="syn-btn mt-8">
+    <div class="syn-btn mt-8">
         <SynButton
             :variant="SynButtonVariant.primary"
             :size="SynButtonSize.medium"
@@ -19,7 +19,7 @@
                 />
             </template>
         </SynButton>
-    </div> -->
+    </div>
 </template>
 
 <script setup lang="ts">
